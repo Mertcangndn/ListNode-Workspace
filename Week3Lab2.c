@@ -142,7 +142,7 @@ void menu(void){
     x->next = NULL;
     Node* tempNode = x;
     
-    //Hazır Node Oluşturma<
+    //Hazır Node Oluşturma
     for(int i=1 ; i<=10 ; i++){
         Node* nextTempNode = malloc(sizeof(Node));
         nextTempNode->value = 0;
