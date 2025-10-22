@@ -10,9 +10,9 @@ typedef struct Node{
 //Eğer stack boşsa 1, doluysa 0 döndüren fonksiyon.
 int isEmpty(Node* top){
     if(top==NULL){
-        return 0;
-    }else{
         return 1;
+    }else{
+        return 0;
     }
 }
 
@@ -26,7 +26,7 @@ void push(Node** Top,char c){
     //Geçici Node
 
     //Eğer hiç Node yoksa
-    if(isEmpty){
+    if(isEmpty(*Top)){
         (*Top)=newNode;
         return;
     }else{  //Eğer başka karakter varsa
@@ -54,7 +54,7 @@ int pop(Node** top,char c){
 
 void balance(Node** top,char str[]){
     char tempC;
-    for(int i=0 ; i<20 ; i++){  //dizi bitmediği ve girdi tükenmediği sürece
+    for(int i=0 ; i<20 ; i++){  //dizi bitmediği sürece
         tempC = str[i]; //teker teker karakterleri alıyor.
         switch(tempC){
             //Ekleme
@@ -67,6 +67,7 @@ void balance(Node** top,char str[]){
             case '{':
                 push(top,tempC);
                 break;
+
             //Çıkartma
             case ')':
                 if(!pop(top,tempC)){
@@ -89,7 +90,14 @@ void balance(Node** top,char str[]){
         }
         
     }
-    printf("DENGDEDE!!!");
+
+    if((*top)==NULL){
+        printf("DENGEDE!!!");
+        return;
+    }else{
+        printf("DENGEDE DEĞİL!!!");
+        return;
+    }
 }
 
 void menu(){
@@ -103,7 +111,6 @@ void menu(){
         printf("Parantez Girişi Yapınız: ");
         scanf("%s",str);
         balance(&x,str);
-
     }
 }
 
