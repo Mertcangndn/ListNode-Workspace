@@ -38,17 +38,23 @@ void push(Node** Top,char c){
 
 int pop(Node** top,char c){
     Node* tempNode = *top;
-
-    if(isEmpty(top)){
-        return -1; //Karakter yokken parantez kapatma koymak dengeyi engeller.
-    }else{
-        tempNode->c==c //BIRAYI ASCII İLE YAP
+    if(isEmpty(*top)){
+        return 0; //Karakter yokken parantez kapatma koymak dengeyi engeller.
+    }else{  //Boş değilse
+        if((tempNode->c=='(' && c==')') || (tempNode->c=='[' && c==']') || (tempNode->c=='{' && c=='}')){   //Uyuyorsa
+            *top=tempNode->next;
+            free(tempNode);
+            return 1;
+        }else{  //uymuyorsa
+            return 0;
+        }
+        
     }
 }
 
 void balance(Node** top,char str[]){
     char tempC;
-    for(int i=0 ; i<20 && str[i]!=NULL ; i++){  //dizi bitmediği ve girdi tükenmediği sürece
+    for(int i=0 ; i<20 ; i++){  //dizi bitmediği ve girdi tükenmediği sürece
         tempC = str[i]; //teker teker karakterleri alıyor.
         switch(tempC){
             //Ekleme
@@ -62,27 +68,41 @@ void balance(Node** top,char str[]){
                 push(top,tempC);
                 break;
             //Çıkartma
-            case '[':
-                pop(top,tempC);
+            case ')':
+                if(!pop(top,tempC)){
+                    printf("DENGEDE DEĞİL!!!!");
+                    return;
+                }
+                break;
+            case ']':
+                if(!pop(top,tempC)){
+                    printf("DENGEDE DEĞİL!!!!");
+                    return;
+                }
+                break;
+            case '}':
+                if(!pop(top,tempC)){
+                    printf("DENGEDE DEĞİL!!!!");
+                    return;
+                }
                 break;
         }
         
     }
+    printf("DENGDEDE!!!");
 }
 
 void menu(){
     int select;
     char str[20];
-    for(int i=0;i<20;i++){  //String'in içini boşaltma (Garbage değerlerden kurtulma)
-        str[i]=NULL;
-    }
     Node* x = NULL;
     
     while(1){
+        x=NULL;
         printf("\n\n\n");
         printf("Parantez Girişi Yapınız: ");
         scanf("%s",str);
-        
+        balance(&x,str);
 
     }
 }
