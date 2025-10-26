@@ -4,8 +4,7 @@
 
 int main(void){
     
-    Node* head = malloc(sizeof(Node));
-
+    Node* head = NULL;
     menu(&head);
     
     return 0;

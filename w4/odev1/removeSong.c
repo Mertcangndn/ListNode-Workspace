@@ -1,6 +1,7 @@
 #include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void removeSong(Node** head, char* isim){
     //NULL Kontrolü
@@ -15,8 +16,9 @@ void removeSong(Node** head, char* isim){
     Node* tempNode = *head;
     Node* prevTempNode = NULL;
     
-    while(1){
-        if(tempNode->name==isim){   //Eşleşiyorsa
+    while(tempNode!=NULL){
+        if(strcmp(tempNode->name,isim)==0){   //Eşleşiyorsa
+            printf("eşleşme bulundu");
 
             if(tempNode->next==NULL && tempNode->prev==NULL){  //Tek Şarkı Varsa
 

@@ -22,7 +22,7 @@ void menu(Node** head){
         printf("[2] Sarki Ekle\n");
         printf("[3] Sarki Sil\n");
         printf("[4] Onceki Sarkiyi Cal\n");
-        printf("[4] Sonraki Sarkiyi Cal");
+        printf("[5] Sonraki Sarkiyi Cal");
         printf("\n------------------------\n\n\n");
         
         scanf("%d",&select);
@@ -37,6 +37,7 @@ void menu(Node** head){
                 }
                 
                 //LİSTELEME KISMI
+                tempNode = *head;
                 printf("\n\n\n------------------------\n");
                 for(int i=1 ; tempNode!=NULL ; i++){
                     printf("[%d] %s\n",i,tempNode->name);
@@ -62,35 +63,47 @@ void menu(Node** head){
                 printf("Eklemek Istediginiz Sarkinin Ismini Giriniz: ");
                 scanf("%s",isim);
                 addSongToEnd(head,isim);
+                tempNode=*head;
                 break;
             case 3:
                 printf("Sılmek Istediginiz Sarkinin Ismini Giriniz: ");
                 scanf("%s",isim);
                 removeSong(head,isim);
+                tempNode=*head;
                 break;
             case 4:
                 tempNode = *head;
                 while(tempNode!=NULL){
-                    if(current==tempNode->name){
+                    if(strcmp(tempNode->name,current)==0){
                         break;
                     }else{
                         tempNode=tempNode->next;
                     }
                 }
-                printf("Caliniyor: %s",(tempNode->prev)->name);
-                strcpy(current,(tempNode->prev)->name);
+                if(tempNode!=NULL && tempNode->next!=NULL){
+                    playPrevious(tempNode);
+                    strcpy(current,(tempNode->next)->name);
+                }else{
+                    printf("BIR HATA OLUSTU");
+                }
+                tempNode = *head;
                 break;
             case 5:
                 tempNode = *head;
                 while(tempNode!=NULL){
-                    if(current==tempNode->name){
+                    if(strcmp(tempNode->name,current)==0){
                         break;
                     }else{
                         tempNode=tempNode->next;
                     }
                 }
-                printf("Caliniyor: %s",(tempNode->next)->name);
-                strcpy(current,(tempNode->next)->name);
+                if(tempNode!=NULL && tempNode->next!=NULL){
+                    playNext(tempNode);
+                    strcpy(current,(tempNode->next)->name);
+                }else{
+                    printf("BIR HATA OLUSTU");
+                }
+                tempNode = *head;
                 break;
             default:
                 printf("Yanlis secim, lutfen tekrar deneyin!");
