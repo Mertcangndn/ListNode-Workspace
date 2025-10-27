@@ -52,6 +52,32 @@
                 "kind": "build"
             },
             "detail": "Task to build the entire odev1 project."
+        },
+        {
+            // İsim önemli değil, launch.json ile aynı olsun yeter
+            "label": "odev3", 
+            "type": "shell",
+            "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                // Hangi dosya açık olursa olsun, klasördeki TÜM .c dosyalarını al
+                "${workspaceFolder}/w4/odev3/*.c", 
+                "-o",
+                // Çıktı adını HER ZAMAN buna sabitle
+                "${workspaceFolder}/w4/odev3/proje3.exe" 
+            ],
+            "options": {
+                // Çalışma dizinini de sabitle
+                "cwd": "${workspaceFolder}/w4/odev3" 
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "detail": "Task to build the entire odev1 project."
         }
     ]
 }
