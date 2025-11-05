@@ -28,7 +28,7 @@ int main(void){
                 enter(&head);
                 break;
             case 3:
-                exit(&head);
+                ext(&head);
                 break;
             case 4:
                 printList(head);

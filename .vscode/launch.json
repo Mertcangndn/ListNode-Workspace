@@ -70,6 +70,27 @@
           "ignoreFailures": true
         }
       ]
+    },
+    {
+      "name": "w5",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/w5/proje5.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/w5",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe", // Senin orijinal gdb yolun
+      "preLaunchTask": "w5", 
+      "setupCommands": [
+        {
+          "description": "gdb için düzgün yazdırmayı etkinleştir",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
     }
   ]
 }

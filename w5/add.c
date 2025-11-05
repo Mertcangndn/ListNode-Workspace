@@ -7,10 +7,6 @@ void add(Node** head){
 
     char name[50];
 
-    printf("\n\n\n------------------------\n");
-    printf("HASTA KAYIT EKRANI");
-    printf("\n------------------------\n\n\n");
-
 
     printf("\n\n\n------------------------\n");
     printf("Lutfen Hastanin Adini Giriniz:");

@@ -3,7 +3,7 @@
 #include <string.h>
 #include "header.h"
 
-void exit(Node** head){
+void ext(Node** head){
     if(*head==NULL){
         printf("\n\n\n------------------------\n");
         printf("Hasta Sirasi Bos!");
@@ -15,6 +15,7 @@ void exit(Node** head){
     while(tempNode!=NULL){
         if(strcmp(tempNode->current,"Muayenede")){
             strcpy(tempNode->current,"Tamamlandi");
+            break;
         }else{
             tempNode=tempNode->next;
         }

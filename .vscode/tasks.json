@@ -78,6 +78,32 @@
                 "kind": "build"
             },
             "detail": "Task to build the entire odev1 project."
+        },
+        {
+            // İsim önemli değil, launch.json ile aynı olsun yeter
+            "label": "w5", 
+            "type": "shell",
+            "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                // Hangi dosya açık olursa olsun, klasördeki TÜM .c dosyalarını al
+                "${workspaceFolder}/w5/*.c", 
+                "-o",
+                // Çıktı adını HER ZAMAN buna sabitle
+                "${workspaceFolder}/w5/proje5.exe" 
+            ],
+            "options": {
+                // Çalışma dizinini de sabitle
+                "cwd": "${workspaceFolder}/w5" 
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "detail": "Task to build the entire odev1 project."
         }
     ]
 }
