@@ -13,7 +13,7 @@ void ext(Node** head){
 
     Node* tempNode = *head;
     while(tempNode!=NULL){
-        if(strcmp(tempNode->current,"Muayenede")){
+        if(strcmp(tempNode->current,"Muayenede")==0){
             strcpy(tempNode->current,"Tamamlandi");
             break;
         }else{

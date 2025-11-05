@@ -13,8 +13,9 @@ void enter(Node** head){
 
     Node* tempNode = *head;
     while(tempNode!=NULL){
-        if(strcmp(tempNode->current,"Bekliyor")){
+        if(strcmp(tempNode->current,"Bekliyor")==0){
             strcpy(tempNode->current,"Muayenede");
+            break;
         }else{
             tempNode=tempNode->next;
         }
