@@ -2,22 +2,18 @@
     "version": "2.0.0",
     "tasks": [
         {
-            // İsim önemli değil, launch.json ile aynı olsun yeter
-            "label": "C/C++: gcc.exe build project", 
+            "label": "C/C++: gcc.exe build project",
             "type": "shell",
             "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                // Hangi dosya açık olursa olsun, klasördeki TÜM .c dosyalarını al
-                "${workspaceFolder}/w4/odev1/*.c", 
+                "${workspaceFolder}/w4/odev1/*.c",
                 "-o",
-                // Çıktı adını HER ZAMAN buna sabitle
-                "${workspaceFolder}/w4/odev1/projem.exe" 
+                "${workspaceFolder}/w4/odev1/projem.exe"
             ],
             "options": {
-                // Çalışma dizinini de sabitle
-                "cwd": "${workspaceFolder}/w4/odev1" 
+                "cwd": "${workspaceFolder}/w4/odev1"
             },
             "problemMatcher": [
                 "$gcc"
@@ -28,22 +24,18 @@
             "detail": "Task to build the entire odev1 project."
         },
         {
-            // İsim önemli değil, launch.json ile aynı olsun yeter
-            "label": "odev2", 
+            "label": "odev2",
             "type": "shell",
             "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                // Hangi dosya açık olursa olsun, klasördeki TÜM .c dosyalarını al
-                "${workspaceFolder}/w4/odev2/*.c", 
+                "${workspaceFolder}/w4/odev2/*.c",
                 "-o",
-                // Çıktı adını HER ZAMAN buna sabitle
-                "${workspaceFolder}/w4/odev2/proje2.exe" 
+                "${workspaceFolder}/w4/odev2/proje2.exe"
             ],
             "options": {
-                // Çalışma dizinini de sabitle
-                "cwd": "${workspaceFolder}/w4/odev2" 
+                "cwd": "${workspaceFolder}/w4/odev2"
             },
             "problemMatcher": [
                 "$gcc"
@@ -54,22 +46,18 @@
             "detail": "Task to build the entire odev1 project."
         },
         {
-            // İsim önemli değil, launch.json ile aynı olsun yeter
-            "label": "odev3", 
+            "label": "odev3",
             "type": "shell",
             "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                // Hangi dosya açık olursa olsun, klasördeki TÜM .c dosyalarını al
-                "${workspaceFolder}/w4/odev3/*.c", 
+                "${workspaceFolder}/w4/odev3/*.c",
                 "-o",
-                // Çıktı adını HER ZAMAN buna sabitle
-                "${workspaceFolder}/w4/odev3/proje3.exe" 
+                "${workspaceFolder}/w4/odev3/proje3.exe"
             ],
             "options": {
-                // Çalışma dizinini de sabitle
-                "cwd": "${workspaceFolder}/w4/odev3" 
+                "cwd": "${workspaceFolder}/w4/odev3"
             },
             "problemMatcher": [
                 "$gcc"
@@ -80,22 +68,18 @@
             "detail": "Task to build the entire odev1 project."
         },
         {
-            // İsim önemli değil, launch.json ile aynı olsun yeter
-            "label": "w5", 
+            "label": "w5",
             "type": "shell",
             "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                // Hangi dosya açık olursa olsun, klasördeki TÜM .c dosyalarını al
-                "${workspaceFolder}/w5/*.c", 
+                "${workspaceFolder}/w5/*.c",
                 "-o",
-                // Çıktı adını HER ZAMAN buna sabitle
-                "${workspaceFolder}/w5/proje5.exe" 
+                "${workspaceFolder}/w5/proje5.exe"
             ],
             "options": {
-                // Çalışma dizinini de sabitle
-                "cwd": "${workspaceFolder}/w5" 
+                "cwd": "${workspaceFolder}/w5"
             },
             "problemMatcher": [
                 "$gcc"
@@ -104,6 +88,29 @@
                 "kind": "build"
             },
             "detail": "Task to build the entire odev1 project."
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe build active file",
+            "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Task generated by Debugger."
         }
     ]
 }
