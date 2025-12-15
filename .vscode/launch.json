@@ -1,26 +1,21 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
-  "configurations": [
-    {
-            "name": "(Ödev 1) Debug",
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Aktif C Dosyasını Debug Et",
             "type": "cppdbg",
             "request": "launch",
-            // tasks.json'da oluşturduğumuz SABİT .exe'yi çalıştır
-            "program": "${workspaceFolder}/w4/odev1/projem.exe",
+            // tasks.json'da oluşturduğumuz dinamik exe yolunu buraya veriyoruz:
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            // Projenin ana klasörü
-            "cwd": "${workspaceFolder}/w4/odev1",
+            "cwd": "${fileDirname}",
             "environment": [],
-            // 'true' yap ki scanf falan düzgün çalışsın
-            "externalConsole": false, 
+            "externalConsole": false,
             "MIMode": "gdb",
             "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
-            // tasks.json'daki 'label' ile AYNI ismi çağır
-            "preLaunchTask": "C/C++: gcc.exe build project", 
+            // tasks.json'daki 'label' ismiyle birebir aynı olmalı:
+            "preLaunchTask": "C/C++: Aktif Dosyayı Derle",
             "setupCommands": [
                 {
                     "description": "gdb için düzgün yazdırmayı etkinleştir",
@@ -28,69 +23,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },
-    {
-      "name": "(Ödev 2) Debug Project 2",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/w4/odev2/proje2.exe", // Buraya odev2'nin .exe adını yaz
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}/w4/odev2",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe", // Senin orijinal gdb yolun
-      "preLaunchTask": "odev2", 
-      "setupCommands": [
-        {
-          "description": "gdb için düzgün yazdırmayı etkinleştir",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
         }
-      ]
-    },
-    {
-      "name": "(Ödev 3) Debug Project 3",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/w4/odev3/proje3.exe", // Buraya odev2'nin .exe adını yaz
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}/w4/odev3",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe", // Senin orijinal gdb yolun
-      "preLaunchTask": "odev3", 
-      "setupCommands": [
-        {
-          "description": "gdb için düzgün yazdırmayı etkinleştir",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
-    },
-    {
-      "name": "w5",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/w5/proje5.exe",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}/w5",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe", // Senin orijinal gdb yolun
-      "preLaunchTask": "w5", 
-      "setupCommands": [
-        {
-          "description": "gdb için düzgün yazdırmayı etkinleştir",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
-    }
-  ]
+    ]
 }
