@@ -62,10 +62,20 @@ void printGraph(Graph* graph){
             printf("%d -> ", tempNode->value);
             tempNode = tempNode->next;
         }
-        printf("NULL")
+        printf("NULL\n");
     }
 }
 
 int main(void){
+
+    Graph* graph = createGraph(6);
+    
+    addEdge(graph, 0, 2);
+    addEdge(graph, 0, 1);
+    addEdge(graph, 1, 3);
+    addEdge(graph, 0, 4);
+
+    printGraph(graph);
+
     return 0;
 }
