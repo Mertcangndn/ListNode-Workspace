@@ -26,9 +26,10 @@ typedef struct Graph{
 Graph* createGraph(int totalNode){
     Graph* graph = malloc(sizeof(Graph));   //graph için yer açma
     
+    graph->totalNode = totalNode;
     graph->adjLists = malloc(totalNode * sizeof(Node)); //graph'ın adjlayer'i için yer açma (toplam node sayısı * 1 Node büyüküğü kdr)
     graph->visited = malloc(totalNode * sizeof(int));   //graph'ın gezilenlari tutma listesi için yer açma (toplam node sayısı * 1 int büyüklüğü)
-    
+
     //adjList'i ve visited listelerini doldurma
     for(int i=0 ; i<totalNode ; i++){
         graph->adjLists[i]=NULL; //Başlangıçta hiçbir node birbirine bağlı değil
@@ -73,9 +74,8 @@ int main(void){
     addEdge(graph, 0, 2);
     addEdge(graph, 0, 1);
     addEdge(graph, 1, 3);
-    addEdge(graph, 0, 4);
+    addEdge(graph, 1, 4);
 
     printGraph(graph);
-
     return 0;
 }
