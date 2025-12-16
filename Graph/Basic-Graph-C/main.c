@@ -7,13 +7,6 @@ typedef struct Node{
     struct Node* next;
 }Node;
 
-//Temel Graph Yapısı
-typedef struct Graph{
-    int totalNode; //Graftaki toplam düğüm sayısını tutan değişken
-    struct Node** adjLists; //Pointer dizisi (LinkedList'lerin başı)
-    int* visited;   //BFS/DFS arama yaparken ziyaret edilen node'ları tutar.
-}Graph;
-
 //Node Oluşurma Fonksiyonu
 Node* createNode(int value){
     Node* newNode = malloc(sizeof(Node));
@@ -21,6 +14,13 @@ Node* createNode(int value){
     newNode->next=NULL;
     return newNode;
 }
+
+//Temel Graph Yapısı
+typedef struct Graph{
+    int totalNode; //Graftaki toplam düğüm sayısını tutan değişken
+    struct Node** adjLists; //Pointer dizisi (LinkedList'lerin başı)
+    int* visited;   //BFS veya DFS arama yaparken ziyaret edilen node'ları tutar.
+}Graph;
 
 //Graph Oluşturma Fonksiyonu
 Graph* createGraph(int totalNode){
@@ -50,6 +50,20 @@ void addEdge(Graph* graph, int src, int dest){
     newNode = createNode(src);
     newNode->next = graph->adjLists[dest];
     graph->adjLists[dest] = newNode;
+}
+
+void printGraph(Graph* graph){
+    for(int i=0 ; i<graph->totalNode ; i++){
+        Node* tempNode = graph->adjLists[i];
+
+        printf("\n %d. Node: ", i);
+
+        while (tempNode) {
+            printf("%d -> ", tempNode->value);
+            tempNode = tempNode->next;
+        }
+        printf("NULL")
+    }
 }
 
 int main(void){
