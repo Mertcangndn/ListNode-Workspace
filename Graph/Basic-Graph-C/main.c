@@ -149,11 +149,5 @@ int main(void){
     printf("\n BFS: ");
     BFS(graph, 0);
 
-    if(1){
-
-    }else if(2){
-
-    }
-
     return 0;
 }
