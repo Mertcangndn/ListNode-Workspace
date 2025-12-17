@@ -57,7 +57,7 @@ void printGraph(Graph* graph){
     for(int i=0 ; i<graph->totalNode ; i++){
         Node* tempNode = graph->adjLists[i];
 
-        printf("\n %d. Node: ", i);
+        printf("%d. Node: ", i);
 
         while (tempNode) {
             printf("%d -> ", tempNode->value);
@@ -66,6 +66,72 @@ void printGraph(Graph* graph){
         printf("NULL\n");
     }
 }
+
+//DFS Depth First Search Fonksiyonu
+void DFS(Graph* graph, int start){  //start: hangi düğümden aramaya başlanacağıdır.
+
+    // ADIM 1: Geldiğim yeri işaretle ve yazdır
+    graph->visited[start]=1;
+    printf("%d->",start);
+
+    // ADIM 2: Komşulara bak
+    Node* tempNode = graph->adjLists[start];
+    while(tempNode){
+        int neighborNode = tempNode->value;
+        
+        // ADIM 3: Eğer o komşuya daha önce girmediysen o yönde git.
+        if(graph->visited[neighborNode]==0){
+            DFS(graph, neighborNode); //Rekürsif kısım
+        }
+
+        //Sonraki Komşuya Geç
+        tempNode=tempNode->next;
+    }
+}
+
+//BFS Breadth First Search Fonksiyonu
+void BFS(Graph* graph, int start){
+
+    // ADIM 1: Önce visited listesini temizleyelim (DFS'ten kalan izler silinsin)
+    for (int i = 0; i < graph->totalNode; i++)graph->visited[i] = 0;
+
+    // --- KUYRUK KURULUMU (Manuel Queue) ---
+    int queue[100]; // 100 kişilik bir bekleme sırası
+    int front = 0;  // Sıranın başı (Gişe)
+    int rear = 0;   // Sıranın sonu (Yeni gelenin gireceği yer)
+
+    // ADIM 2: Başlangıç düğümünü sıraya al ve işaretle
+    graph->visited[start]=1;
+    queue[rear] = start;
+    rear++; //Sıra bir kişi uzadı
+
+    // ADIM 3: Sırada bekleyen hiçbir node kalmayana kadar devam et.
+    while(front<rear){
+
+        //Sıradakini çağırma (dequeue)
+        int currentNode = queue[front];
+        printf("%d->",currentNode);
+        front++; //Sıra ilerledi
+
+        // Bu elemanın komşularını bul ve sıraya ekle
+        Node* tempNode = graph->adjLists[currentNode];
+
+        while(tempNode){
+            int neighborNode = tempNode->value;
+
+            //Eğer komşu daha önce ziyaret edilmediyse
+            if(graph->visited[neighborNode] == 0){
+                graph->visited[neighborNode] = 1;  //ziyaret edildi diye değiştir.
+                queue[rear] = neighborNode; //sıraya sok
+                rear++;
+            }
+            tempNode = tempNode->next;
+        }
+    }
+    printf("NULL");
+    printf("\n");
+}
+
 
 int main(void){
 
@@ -77,5 +143,17 @@ int main(void){
     addEdge(graph, 1, 4);
 
     printGraph(graph);
+
+    printf("\n DFS: ");
+    DFS(graph, 0); //0. node'dan başla.
+    printf("\n BFS: ");
+    BFS(graph, 0);
+
+    if(1){
+
+    }else if(2){
+
+    }
+
     return 0;
 }
